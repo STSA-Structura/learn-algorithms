@@ -285,3 +285,165 @@ public class PalindromeTest {
 - Gradle makes it simple to manage dependencies and automate tasks like building and testing.
 
 Let me know if you'd like further customization or additional features in this setup!
+
+---
+
+Certainly! Let's integrate the provided problem statement, constraints, and a solution in the code. I will add the full statement, the constraints, and modify the code to meet the requirements effectively. Here's the updated setup.
+
+### Updated **Problem Statement**:
+
+#### **Statement**:
+
+Write a function that takes a string, `s`, as an input and determines whether or not it is a palindrome.
+
+A **palindrome** is a word, phrase, or sequence of characters that reads the same backward as forward.
+
+#### **Constraints**:
+
+- \( 1 \leq s.length \leq 2 \times 10^5 \)
+- The string `s` will not contain any whitespace and will only consist of ASCII characters (letters and digits).
+
+### Updated **Code Implementation**:
+
+#### **Palindrome.java** (Main class)
+
+```java
+package com.tsa.algorithm;
+
+public class Palindrome {
+
+    public static void main(String[] args) {
+        // Test cases
+        String[] testStrings = {
+            "AmanaplanacanalPanama",  // Valid palindrome
+            "racecar",                // Valid palindrome
+            "hello",                  // Invalid palindrome
+            "MadamInEdenImAdam",      // Valid palindrome
+            "12321"                   // Valid palindrome
+        };
+
+        // Check each test case
+        for (String testString : testStrings) {
+            boolean result = PalindromeChecker.isPalindrome(testString);
+            System.out.println("\"" + testString + "\" is palindrome: " + result);
+        }
+    }
+}
+```
+
+- This is the main class to execute the palindrome check using `PalindromeChecker`.
+
+#### **PalindromeChecker.java** (Utility class)
+
+```java
+package com.tsa.algorithm;
+
+public class PalindromeChecker {
+
+    // Function to check if a string is a palindrome
+    public static boolean isPalindrome(String s) {
+        // Remove non-alphanumeric characters and convert to lowercase
+        // Although the problem guarantees no whitespace and only ASCII characters, we ensure the check is case insensitive
+        s = s.toLowerCase();
+
+        // Initialize two pointers
+        int left = 0;
+        int right = s.length() - 1;
+
+        // Traverse the string from both ends
+        while (left < right) {
+            // Compare characters at both pointers
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;  // If characters don't match, return false
+            }
+            left++;   // Move left pointer to the right
+            right--;  // Move right pointer to the left
+        }
+
+        return true;  // If all characters match, return true
+    }
+}
+```
+
+- The `PalindromeChecker` contains the logic to check whether the string is a palindrome using two pointers (from left and right).
+- We convert the string to lowercase before performing checks to ensure case insensitivity.
+
+#### **PalindromeTest.java** (JUnit test cases)
+
+```java
+package com.tsa.algorithm;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class PalindromeTest {
+
+    // Test for valid palindromes
+    @Test
+    public void testPalindromeWithValidCases() {
+        assertTrue(PalindromeChecker.isPalindrome("AmanaplanacanalPanama"));
+        assertTrue(PalindromeChecker.isPalindrome("racecar"));
+        assertTrue(PalindromeChecker.isPalindrome("MadamInEdenImAdam"));
+        assertTrue(PalindromeChecker.isPalindrome("12321"));
+    }
+
+    // Test for invalid palindromes
+    @Test
+    public void testPalindromeWithInvalidCases() {
+        assertFalse(PalindromeChecker.isPalindrome("hello"));
+        assertFalse(PalindromeChecker.isPalindrome("notapalindrome"));
+    }
+}
+```
+
+- `PalindromeTest` includes the JUnit test cases to verify both valid and invalid palindrome strings.
+
+### **Explanation of Changes**:
+
+1. **Main Functionality**:
+   - The `isPalindrome` method in `PalindromeChecker` verifies if the string is a palindrome by iterating from both ends of the string towards the center using two pointers. The string is first converted to lowercase to handle case insensitivity.
+2. **Constraints**:
+
+   - The problem specifies a string length constraint up to \( 2 \times 10^5 \). Our approach handles this efficiently with a time complexity of \( O(n) \), which is optimal for the given constraint.
+
+3. **Edge Cases**:
+
+   - Strings with even or odd lengths are handled by the two-pointer approach.
+   - The string length could go up to \( 2 \times 10^5 \), which the algorithm can process efficiently in linear time.
+
+4. **JUnit Tests**:
+
+   - The test cases verify both palindromes and non-palindromes. They test strings with mixed cases, valid palindromes, and invalid strings.
+
+5. **No Whitespace**:
+   - Since the problem guarantees no whitespace and only ASCII characters, we do not need to remove spaces or handle non-ASCII characters. However, the code includes a `.toLowerCase()` to ensure the solution works for cases like `MadamInEdenImAdam`.
+
+---
+
+### **Running the Project**:
+
+1. **Building the Project**:
+
+   ```bash
+   ./gradlew build
+   ```
+
+2. **Running the Program** (for the main class):
+
+   ```bash
+   ./gradlew run
+   ```
+
+   This will print the result for each string, indicating whether it is a palindrome or not.
+
+3. **Running the Tests**:
+
+   ```bash
+   ./gradlew test
+   ```
+
+   This will run the JUnit tests and show the results in the console.
+
+---
+
+This setup ensures that the problem is solved efficiently while adhering to the problem's constraints. If you need further customizations or additions, feel free to ask!
