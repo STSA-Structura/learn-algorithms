@@ -22,8 +22,8 @@ public class PalindromeChecker {
             }
 
             // Step 5: Move the left pointer towards the center (right direction)
-            // Step 6: Move the right pointer towards the center (left direction)
             left++;
+            // Step 6: Move the right pointer towards the center (left direction)
             right--;
         }
 
