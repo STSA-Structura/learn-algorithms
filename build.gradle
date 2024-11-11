@@ -19,6 +19,6 @@ test {
 }
 
 task run(type: JavaExec) {
-    main = 'com.tsa.algorithm.Palindrome'  // Main class to run
+    main = 'com.ldsa.Palindrome2p.Palindrome'  // Main class to run
     classpath = sourceSets.main.runtimeClasspath
 }
