@@ -1,6 +1,5 @@
 package com.ldsa.Palindrome2p;
 
-
 public class PalindromeChecker {
 
     // Method to check if a string is a palindrome using the Two Pointers approach
@@ -16,12 +15,12 @@ public class PalindromeChecker {
         while (left < right) {
             // Compare characters at both pointers
             if (s.charAt(left) != s.charAt(right)) {
-                return false;  // Characters don't match
+                return false; // Characters don't match
             }
-            left++;   // Move left pointer to the right
-            right--;  // Move right pointer to the left
+            left++; // Move left pointer to the right
+            right--; // Move right pointer to the left
         }
 
-        return true;  // All characters matched, it's a palindrome
+        return true; // All characters matched, it's a palindrome
     }
 }
