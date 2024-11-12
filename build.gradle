@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'com.tsa.algorithm'  // Your package namespace
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()  // For dependencies
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+}
+
+test {
+    useJUnitPlatform()  // Enable JUnit 5
+}
+
+task run(type: JavaExec) {
+    main = 'com.ldsa.Palindrome2p.Palindrome'  // Main class to run
+    classpath = sourceSets.main.runtimeClasspath
+}
