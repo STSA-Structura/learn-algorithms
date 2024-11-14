@@ -18,12 +18,17 @@ test {
     useJUnitPlatform()  // Enable JUnit 5
 }
 
-task run(type: JavaExec) {
-    main = 'com.ldsa.Palindrome2p.Palindrome'  // Main class to run
+task runPalindromeMain(type: JavaExec) {
+    mainClass = 'com.ldsa.Palindrome2p.Palindrome'  // Main class to run (updated to use mainClass)
     classpath = sourceSets.main.runtimeClasspath
 }
 
-task runAnotherMain(type: JavaExec) {
-    main = 'com.ldsa.AnotherMainClass'  // Main class for another class
+task runThreeSumMain(type: JavaExec) {
+    mainClass = 'com.ldsa.ThreeSum2p.ThreeSum'  // Main class for another class (updated to use mainClass)
     classpath = sourceSets.main.runtimeClasspath
+}
+
+// New task to run both tasks in sequence
+task runAll {
+    dependsOn 'runPalindromeMain', 'runThreeSumMain'
 }
