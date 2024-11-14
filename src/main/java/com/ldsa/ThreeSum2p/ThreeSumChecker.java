@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 public class ThreeSumChecker {
 
-    public static boolean findTripletSum(int[] nums, int target) {
+    // Function to check if there exists a triplet with sum equal to the target
+    public static boolean findSumOfThree(int[] nums, int target) {
         // First, sort the array
         Arrays.sort(nums);
 
