@@ -22,3 +22,8 @@ task run(type: JavaExec) {
     main = 'com.ldsa.Palindrome2p.Palindrome'  // Main class to run
     classpath = sourceSets.main.runtimeClasspath
 }
+
+task runAnotherMain(type: JavaExec) {
+    main = 'com.ldsa.AnotherMainClass'  // Main class for another class
+    classpath = sourceSets.main.runtimeClasspath
+}
