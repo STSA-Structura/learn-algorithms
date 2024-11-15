@@ -8,6 +8,12 @@ I am learning Algorithms from different Video Courses, Books, and Websites.
 
 ## Running the Project
 
+### Current Working Directory
+
+```text
+D:\TSA-Structura\learn-ds-algorithms>
+```
+
 ### Build the Project: You can build the project using Gradle by running
 
 ```bash
