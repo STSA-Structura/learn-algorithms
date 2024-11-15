@@ -16,6 +16,13 @@
             "request": "launch",
             "mainClass": "com.ldsa.Palindrome2p.Palindrome",
             "projectName": "learn-ds-algorithms"
+        },
+        {
+            "type": "java",
+            "name": "ThreeSum",
+            "request": "launch",
+            "mainClass": "com.ldsa.ThreeSum2p.ThreeSum",
+            "projectName": "learn-ds-algorithms"
         }
     ]
 }
