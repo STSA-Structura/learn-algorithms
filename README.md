@@ -48,15 +48,15 @@ learn-algorithms/
 │   ├── main/
 │   │   └── java/
 │   │       └── com/
-│   │           └── tsa/
-│   │               └── algorithm/
+│   │           └── ldsa/
+│   │               └── Palindrome2p/
 │   │                   ├── Palindrome.java
 │   │                   └── PalindromeChecker.java
 │   └── test/
 │       └── java/
 │           └── com/
-│               └── tsa/
-│                   └── algorithm/
+│               └── ldsa/
+│                   └── Palindrome2p/
 │                       └── PalindromeTest.java
 ├── .gitignore           # Files or directories to ignore in Git (e.g., .class files, IDE settings)
 ├── LICENSE              # License for your code
