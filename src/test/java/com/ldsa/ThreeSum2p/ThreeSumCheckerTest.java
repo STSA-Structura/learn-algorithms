@@ -1,7 +1,8 @@
 package com.ldsa.ThreeSum2p;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;  // Correct static imports for assertions
+
 
 public class ThreeSumCheckerTest {
 
