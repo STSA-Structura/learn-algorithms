@@ -98,3 +98,122 @@ public static void main(String[] args) {
 ```
 
 This approach handles all constraints effectively and efficiently.
+
+Here’s a test case Java file for the "Remove Nth Node from End of List" solution. This file will test various cases, including removing nodes from different positions in the list.
+
+### Test Case File (RemoveNthFromEndTest.java)
+
+```java
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RemoveNthFromEndTest {
+
+    // Helper method to create a linked list from an array
+    public ListNode createList(int[] arr) {
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+        for (int num : arr) {
+            current.next = new ListNode(num);
+            current = current.next;
+        }
+        return dummy.next;  // Return the head of the list
+    }
+
+    // Helper method to convert the linked list to a string for easier verification
+    public String listToString(ListNode head) {
+        StringBuilder sb = new StringBuilder();
+        while (head != null) {
+            sb.append(head.val);
+            if (head.next != null) sb.append(" -> ");
+            head = head.next;
+        }
+        return sb.toString();
+    }
+
+    @Test
+    public void testRemoveNthFromEnd() {
+        RemoveNthFromEnd solution = new RemoveNthFromEnd();
+
+        // Test Case 1: Remove 2nd node from the end in a list of 5 elements
+        ListNode head = createList(new int[]{1, 2, 3, 4, 5});
+        ListNode result = solution.removeNthFromEnd(head, 2);
+        assertEquals("1 -> 2 -> 3 -> 5", listToString(result));
+
+        // Test Case 2: Remove the head node (1st from the end) in a list of 5 elements
+        head = createList(new int[]{1, 2, 3, 4, 5});
+        result = solution.removeNthFromEnd(head, 5);  // Removing the first node
+        assertEquals("2 -> 3 -> 4 -> 5", listToString(result));
+
+        // Test Case 3: Remove the last node (5th from the end) in a list of 5 elements
+        head = createList(new int[]{1, 2, 3, 4, 5});
+        result = solution.removeNthFromEnd(head, 1);  // Removing the last node
+        assertEquals("1 -> 2 -> 3 -> 4", listToString(result));
+
+        // Test Case 4: Remove 1st node from the end in a list of 1 element
+        head = createList(new int[]{1});
+        result = solution.removeNthFromEnd(head, 1);  // Removing the only node
+        assertNull(result);  // The list should become empty
+
+        // Test Case 5: Remove the 1st node from the end in a list of 2 elements
+        head = createList(new int[]{1, 2});
+        result = solution.removeNthFromEnd(head, 2);  // Removing the first node
+        assertEquals("2", listToString(result));
+
+        // Test Case 6: Remove the last node in a list of 2 elements
+        head = createList(new int[]{1, 2});
+        result = solution.removeNthFromEnd(head, 1);  // Removing the last node
+        assertEquals("1", listToString(result));
+
+        // Test Case 7: Remove node from a larger list
+        head = createList(new int[]{10, 20, 30, 40, 50, 60});
+        result = solution.removeNthFromEnd(head, 4);  // Remove 4th node from the end (40)
+        assertEquals("10 -> 20 -> 30 -> 50 -> 60", listToString(result));
+    }
+}
+```
+
+### Explanation of the Test Case Code
+
+1. **Helper Methods**:
+
+   - `createList(int[] arr)`: Converts an array of integers into a linked list.
+   - `listToString(ListNode head)`: Converts a linked list into a string format (for easier comparison).
+
+2. **Test Cases**:
+   - **Test Case 1**: Removes the 2nd node from the end in a list of 5 elements (removes node `4`).
+   - **Test Case 2**: Removes the 5th node from the end (removes node `1`, i.e., the head node).
+   - **Test Case 3**: Removes the 1st node from the end (removes node `5`).
+   - **Test Case 4**: Removes the only node in the list (head node), expecting the list to be empty (`null`).
+   - **Test Case 5**: Removes the 2nd node from the end in a list of 2 elements (removes node `1`).
+   - **Test Case 6**: Removes the last node (removes node `2`).
+   - **Test Case 7**: Removes the 4th node from the end in a list of 6 elements (removes node `40`).
+
+### How to Run the Tests
+
+To run the tests, you can use a testing framework like **JUnit 5**. If you are using **Gradle**, make sure to include the JUnit dependency in your `build.gradle` file:
+
+```gradle
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+}
+```
+
+Run the tests using the following command:
+
+```bash
+gradle test
+```
+
+### Expected Output
+
+For each test case, the expected output will be printed based on the assertions. If the assertions are true, the test will pass; otherwise, it will fail.
+
+For example:
+
+- **Test Case 1**: Should output `1 -> 2 -> 3 -> 5` after removing the 2nd node from the end.
+- **Test Case 2**: Should output `2 -> 3 -> 4 -> 5` after removing the 1st node from the end.
+- **Test Case 4**: Should result in `null`, as the list becomes empty after removal.
+
+This setup will verify that the solution works under different scenarios.
