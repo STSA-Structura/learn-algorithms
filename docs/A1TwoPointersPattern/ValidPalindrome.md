@@ -1,18 +1,18 @@
 # Valid Palindrome
 
-Great! Let's start by focusing on the **Palindrome** algorithm using the Two Pointers pattern in **Palindrome.java**.
+Let's start by focusing on the `Palindrome` algorithm using the Two Pointers pattern in `Palindrome.java`.
 
 ## Problem: Check if a String is a Palindrome
 
-A **palindrome** is a string that reads the same backward as forward. The two-pointer technique can be used to efficiently check if a string is a palindrome by comparing characters from both ends of the string.
+A `palindrome` is a string that reads the same backward as forward. The two-pointer technique can be used to efficiently check if a string is a palindrome by comparing characters from both ends of the string.
 
-### Plan:
+## Plan
 
-- We will use two pointers:
-  - One starting from the beginning (`left`).
-  - One starting from the end (`right`).
-- Move the pointers towards the center, comparing characters at each step. If at any point the characters don't match, return `false`.
-- If the pointers meet or cross each other and all characters match, return `true`.
+> 1. We will use two pointers:
+>    - One starting from the beginning (`left`).
+>    - One starting from the end (`right`).
+> 1. Move the pointers towards the center, comparing characters at each step. If at any point the characters don't match, return `false`.
+> 1. If the pointers meet or cross each other and all characters match, return `true`.
 
 ### Time Complexity:
 
@@ -82,11 +82,7 @@ public class Palindrome {
 1. You can run this program and verify if the logic works for various palindrome test cases.
 2. You can also add more test cases for edge cases, like empty strings or strings with special characters.
 
-Let me know if you'd like to modify or add more functionality to this!
-
 ---
-
-Absolutely! Let's enhance the project by adding Gradle support and organizing the code into multiple Java files within packages.
 
 ### Project Structure:
 
