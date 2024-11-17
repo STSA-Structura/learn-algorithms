@@ -1,4 +1,4 @@
-package com.ldsa.RNthNFEndofList;
+package com.ldsa.RNthNFEndofList2p;
 
 public class LinkedList<T> {
     public LinkedListNode head;

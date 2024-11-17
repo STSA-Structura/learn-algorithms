@@ -1,4 +1,4 @@
-package com.ldsa.RNthNFEndofList;
+package com.ldsa.RNthNFEndofList2p;
 
 public class PrintList {
     public static void printListWithForwardArrow(LinkedListNode head) {
