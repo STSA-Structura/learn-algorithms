@@ -7,9 +7,9 @@ public class PrintList {
             System.out.print(temp.data);
             temp = temp.next;
             if (temp != null) {
-                System.out.print(" → ");
+                System.out.print(" -> ");
             }
         }
-        System.out.println(" → null");
+        System.out.println(" -> null");
     }
 }

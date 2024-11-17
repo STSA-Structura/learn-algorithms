@@ -23,6 +23,13 @@
             "request": "launch",
             "mainClass": "com.ldsa.ThreeSum2p.ThreeSum",
             "projectName": "learn-ds-algorithms"
+        },
+        {
+            "type": "java",
+            "name": "RNthNFEndofList",
+            "request": "launch",
+            "mainClass": "com.ldsa.RNthNFEndofList.Main",
+            "projectName": "learn-ds-algorithms"
         }
     ]
 }
