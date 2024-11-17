@@ -1,219 +1,178 @@
 # Remove Nth Node from End of List
 
-To solve the "Remove Nth Node from End of List" problem, you can use a two-pointer approach. Here’s a step-by-step solution in Java:
+Here is a refined review, explanation, and breakdown of your solution for "Remove Nth Node from End of List."
 
-## Approach
+## Solution Overview
 
-1. **Two-Pointer Technique**:
+The task is to remove the `n`th node from the end of a singly linked list and return the head of the modified list. This solution uses a two-pointer technique, where one pointer (`right`) is advanced by `n` nodes first, and then both pointers (`right` and `left`) move together until `right` reaches the end. This allows `left` to land on the node just before the target node, making it possible to skip the target node with `left.next = left.next.next`.
 
-   - Start with two pointers, both initially pointing to the head of the linked list.
-   - Move the first pointer `n` steps ahead.
-   - Then move both pointers one step at a time until the first pointer reaches the end of the list.
-   - At this point, the second pointer will be at the node just before the one you need to remove.
+### Code Structure and Explanation
 
-2. **Edge Cases**:
-   - If the head node needs to be removed, adjust the `head` reference directly.
-   - Handle lists with only one node, or when `n` equals the length of the list.
+1. **Class Definitions**:
 
-### Solution Code
+   - `LinkedListNode`: Represents a node in the linked list with a `data` attribute and a `next` pointer to the next node.
+   - `LinkedList`: Represents a singly linked list with helper methods to add nodes (`insertNodeAtHead`) and initialize the list from an array (`createLinkedList`).
+   - `PrintList`: Contains a utility method to print the linked list in a readable format.
+
+2. **Algorithm** (`removeNthLastNode` method in `RemoveNthNode` class):
+
+   - **Step 1**: Move the `right` pointer `n` nodes forward from the head.
+   - **Step 2**: If `right` reaches `null` after advancing `n` steps, it means we need to remove the head node (i.e., the list has exactly `n` nodes). In this case, we return `head.next` as the new head.
+   - **Step 3**: Advance both `right` and `left` pointers until `right` reaches the end. At this point, `left.next` is the target node to remove.
+   - **Step 4**: Remove the target node by adjusting `left.next` to `left.next.next`.
+
+3. **Driver Code (main method)**:
+   - Initializes multiple test cases with predefined lists and values of `n`.
+   - For each test case, creates a linked list, removes the `n`th node from the end, and prints the modified list.
+
+### Complete Code with Minor Enhancements
+
+Here's a streamlined version of your solution with improved comments and formatting.
 
 ```java
-class ListNode {
-    int val;
-    ListNode next;
+// Node class for the linked list
+class LinkedListNode {
+    public int data;
+    public LinkedListNode next;
 
-    ListNode(int val) {
-        this.val = val;
+    // Constructor to initialize node with data
+    public LinkedListNode(int data) {
+        this.data = data;
         this.next = null;
     }
 }
 
-public class RemoveNthFromEnd {
+// Template for the linked list
+class LinkedList<T> {
+    public LinkedListNode head;
 
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-        // Create a dummy node to handle edge cases like removing the head
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
+    // Constructor to initialize an empty linked list
+    public LinkedList() {
+        this.head = null;
+    }
 
-        ListNode first = dummy;
-        ListNode second = dummy;
+    // Method to insert a node at the head of the list
+    public void insertNodeAtHead(LinkedListNode node) {
+        if (this.head == null) {
+            this.head = node;
+        } else {
+            node.next = this.head;
+            this.head = node;
+        }
+    }
 
-        // Move first pointer n+1 steps ahead
-        for (int i = 0; i <= n; i++) {
-            first = first.next;
+    // Method to create the linked list from an integer array
+    public void createLinkedList(int[] lst) {
+        for (int i = lst.length - 1; i >= 0; i--) {
+            LinkedListNode newNode = new LinkedListNode(lst[i]);
+            insertNodeAtHead(newNode);
+        }
+    }
+}
+
+// Utility class to print the linked list
+class PrintList {
+    public static void printListWithForwardArrow(LinkedListNode head) {
+        LinkedListNode temp = head;
+        while (temp != null) {
+            System.out.print(temp.data);
+            temp = temp.next;
+            if (temp != null) {
+                System.out.print(" → ");
+            }
+        }
+        System.out.println(" → null");
+    }
+}
+
+// Main class containing the algorithm to remove the nth node from the end
+class RemoveNthNode {
+
+    // Method to remove the nth node from the end of the list
+    public static LinkedListNode removeNthLastNode(LinkedListNode head, int n) {
+        LinkedListNode right = head;
+        LinkedListNode left = head;
+
+        // Move `right` pointer `n` steps ahead
+        for (int i = 0; i < n; i++) {
+            right = right.next;
         }
 
-        // Move both pointers until first pointer reaches the end
-        while (first != null) {
-            first = first.next;
-            second = second.next;
+        // If `right` is null, the head node is the one to be removed
+        if (right == null) {
+            return head.next;
         }
 
-        // Skip the nth node from the end
-        second.next = second.next.next;
+        // Move both pointers until `right` reaches the end
+        while (right.next != null) {
+            right = right.next;
+            left = left.next;
+        }
 
-        // Return the head of the modified list
-        return dummy.next;
+        // Remove the nth node from end
+        left.next = left.next.next;
+
+        return head;
+    }
+
+    // Driver code for testing the solution
+    public static void main(String[] args) {
+        int[][] inputs = {
+            {23, 89, 10, 5, 67, 39, 70, 28},
+            {34, 53, 6, 95, 38, 28, 17, 63, 16, 76},
+            {288, 224, 275, 390, 4, 383, 330, 60, 193},
+            {1, 2, 3, 4, 5, 6, 7, 8, 9},
+            {69, 8, 49, 106, 116, 112, 104, 129, 39, 14, 27, 12}
+        };
+
+        int[] n = {4, 1, 6, 9, 11};
+
+        // Process each test case
+        for (int i = 0; i < inputs.length; i++) {
+            LinkedList<Integer> inputLinkedList = new LinkedList<>();
+            inputLinkedList.createLinkedList(inputs[i]);
+            System.out.print((i + 1) + ". Linked List: ");
+            PrintList.printListWithForwardArrow(inputLinkedList.head);
+            System.out.println("n = " + n[i]);
+            System.out.print("Updated Linked List: ");
+            PrintList.printListWithForwardArrow(removeNthLastNode(inputLinkedList.head, n[i]));
+            System.out.println(new String(new char[50]).replace('\0', '-'));
+        }
     }
 }
 ```
 
-### Explanation of the Code
+### Explanation of Enhancements
 
-1. **Dummy Node**: A dummy node is created and points to the head of the list. This helps handle cases where the head itself needs to be removed.
-2. **Advance `first` Pointer**: Move the `first` pointer `n + 1` steps forward, which ensures there is a gap of `n` nodes between the `first` and `second` pointers.
-3. **Move Both Pointers**: Now move both `first` and `second` pointers one step at a time until `first` reaches the end. The `second` pointer will be right before the node to be removed.
-4. **Remove Node**: Change `second.next` to skip the `n`th node from the end.
-5. **Return Result**: Return `dummy.next` which points to the potentially new head of the list.
+- **Comments and Clarity**: Added detailed comments for readability and to clarify the purpose of each method.
+- **Refined Print Formatting**: Adjusted the arrow print method to ensure clarity in list structure.
+- **Reusable Code**: Helper methods (`insertNodeAtHead`, `createLinkedList`, `printListWithForwardArrow`) make the code modular, easier to test, and reusable.
+
+### Test Output
+
+When executed, the program will print the initial and updated linked lists for each test case, along with the node number (`n`) to remove from the end.
+
+Example Output (format varies by input):
+
+```
+1. Linked List: 23 → 89 → 10 → 5 → 67 → 39 → 70 → 28 → null
+n = 4
+Updated Linked List: 23 → 89 → 10 → 5 → 39 → 70 → 28 → null
+--------------------------------------------------
+...
+```
 
 ### Complexity Analysis
 
-- **Time Complexity**: \(O(k)\), where \(k\) is the number of nodes in the list, since we only traverse the list once.
-- **Space Complexity**: \(O(1)\), as no additional space is used other than a few pointers.
+- **Time Complexity**: \(O(k)\), where \(k\) is the number of nodes in the list, as it traverses the list a constant number of times.
+- **Space Complexity**: \(O(1)\), since it operates in place with two pointers.
 
-### Example
+### Notes for Further Testing
 
-```java
-public static void main(String[] args) {
-    // Create a sample list 1 -> 2 -> 3 -> 4 -> 5
-    ListNode head = new ListNode(1);
-    head.next = new ListNode(2);
-    head.next.next = new ListNode(3);
-    head.next.next.next = new ListNode(4);
-    head.next.next.next.next = new ListNode(5);
+Ensure to run edge cases such as:
 
-    RemoveNthFromEnd solution = new RemoveNthFromEnd();
-    int n = 2;  // Remove the 2nd node from the end
+- Removing the only node in a single-node list.
+- Removing the first or last node in a list with multiple elements.
+- Lists of varying lengths and different values of \(n\).
 
-    ListNode modifiedHead = solution.removeNthFromEnd(head, n);
-
-    // Print the modified list
-    ListNode current = modifiedHead;
-    while (current != null) {
-        System.out.print(current.val + " -> ");
-        current = current.next;
-    }
-    // Expected Output: 1 -> 2 -> 3 -> 5 ->
-}
-```
-
-This approach handles all constraints effectively and efficiently.
-
-Here’s a test case Java file for the "Remove Nth Node from End of List" solution. This file will test various cases, including removing nodes from different positions in the list.
-
-### Test Case File (RemoveNthFromEndTest.java)
-
-```java
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class RemoveNthFromEndTest {
-
-    // Helper method to create a linked list from an array
-    public ListNode createList(int[] arr) {
-        ListNode dummy = new ListNode(0);
-        ListNode current = dummy;
-        for (int num : arr) {
-            current.next = new ListNode(num);
-            current = current.next;
-        }
-        return dummy.next;  // Return the head of the list
-    }
-
-    // Helper method to convert the linked list to a string for easier verification
-    public String listToString(ListNode head) {
-        StringBuilder sb = new StringBuilder();
-        while (head != null) {
-            sb.append(head.val);
-            if (head.next != null) sb.append(" -> ");
-            head = head.next;
-        }
-        return sb.toString();
-    }
-
-    @Test
-    public void testRemoveNthFromEnd() {
-        RemoveNthFromEnd solution = new RemoveNthFromEnd();
-
-        // Test Case 1: Remove 2nd node from the end in a list of 5 elements
-        ListNode head = createList(new int[]{1, 2, 3, 4, 5});
-        ListNode result = solution.removeNthFromEnd(head, 2);
-        assertEquals("1 -> 2 -> 3 -> 5", listToString(result));
-
-        // Test Case 2: Remove the head node (1st from the end) in a list of 5 elements
-        head = createList(new int[]{1, 2, 3, 4, 5});
-        result = solution.removeNthFromEnd(head, 5);  // Removing the first node
-        assertEquals("2 -> 3 -> 4 -> 5", listToString(result));
-
-        // Test Case 3: Remove the last node (5th from the end) in a list of 5 elements
-        head = createList(new int[]{1, 2, 3, 4, 5});
-        result = solution.removeNthFromEnd(head, 1);  // Removing the last node
-        assertEquals("1 -> 2 -> 3 -> 4", listToString(result));
-
-        // Test Case 4: Remove 1st node from the end in a list of 1 element
-        head = createList(new int[]{1});
-        result = solution.removeNthFromEnd(head, 1);  // Removing the only node
-        assertNull(result);  // The list should become empty
-
-        // Test Case 5: Remove the 1st node from the end in a list of 2 elements
-        head = createList(new int[]{1, 2});
-        result = solution.removeNthFromEnd(head, 2);  // Removing the first node
-        assertEquals("2", listToString(result));
-
-        // Test Case 6: Remove the last node in a list of 2 elements
-        head = createList(new int[]{1, 2});
-        result = solution.removeNthFromEnd(head, 1);  // Removing the last node
-        assertEquals("1", listToString(result));
-
-        // Test Case 7: Remove node from a larger list
-        head = createList(new int[]{10, 20, 30, 40, 50, 60});
-        result = solution.removeNthFromEnd(head, 4);  // Remove 4th node from the end (40)
-        assertEquals("10 -> 20 -> 30 -> 50 -> 60", listToString(result));
-    }
-}
-```
-
-### Explanation of the Test Case Code
-
-1. **Helper Methods**:
-
-   - `createList(int[] arr)`: Converts an array of integers into a linked list.
-   - `listToString(ListNode head)`: Converts a linked list into a string format (for easier comparison).
-
-2. **Test Cases**:
-   - **Test Case 1**: Removes the 2nd node from the end in a list of 5 elements (removes node `4`).
-   - **Test Case 2**: Removes the 5th node from the end (removes node `1`, i.e., the head node).
-   - **Test Case 3**: Removes the 1st node from the end (removes node `5`).
-   - **Test Case 4**: Removes the only node in the list (head node), expecting the list to be empty (`null`).
-   - **Test Case 5**: Removes the 2nd node from the end in a list of 2 elements (removes node `1`).
-   - **Test Case 6**: Removes the last node (removes node `2`).
-   - **Test Case 7**: Removes the 4th node from the end in a list of 6 elements (removes node `40`).
-
-### How to Run the Tests
-
-To run the tests, you can use a testing framework like **JUnit 5**. If you are using **Gradle**, make sure to include the JUnit dependency in your `build.gradle` file:
-
-```gradle
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
-}
-```
-
-Run the tests using the following command:
-
-```bash
-gradle test
-```
-
-### Expected Output
-
-For each test case, the expected output will be printed based on the assertions. If the assertions are true, the test will pass; otherwise, it will fail.
-
-For example:
-
-- **Test Case 1**: Should output `1 -> 2 -> 3 -> 5` after removing the 2nd node from the end.
-- **Test Case 2**: Should output `2 -> 3 -> 4 -> 5` after removing the 1st node from the end.
-- **Test Case 4**: Should result in `null`, as the list becomes empty after removal.
-
-This setup will verify that the solution works under different scenarios.
+This solution handles cases effectively while maintaining simplicity and efficiency.
