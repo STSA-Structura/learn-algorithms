@@ -8,6 +8,12 @@ I am learning Algorithms from different Video Courses, Books, and Websites.
 
 ## Running the Project
 
+### Current Working Directory
+
+```text
+D:\TSA-Structura\learn-ds-algorithms>
+```
+
 ### Build the Project: You can build the project using Gradle by running
 
 ```bash
@@ -42,15 +48,15 @@ learn-algorithms/
 │   ├── main/
 │   │   └── java/
 │   │       └── com/
-│   │           └── tsa/
-│   │               └── algorithm/
+│   │           └── ldsa/
+│   │               └── Palindrome2p/
 │   │                   ├── Palindrome.java
 │   │                   └── PalindromeChecker.java
 │   └── test/
 │       └── java/
 │           └── com/
-│               └── tsa/
-│                   └── algorithm/
+│               └── ldsa/
+│                   └── Palindrome2p/
 │                       └── PalindromeTest.java
 ├── .gitignore           # Files or directories to ignore in Git (e.g., .class files, IDE settings)
 ├── LICENSE              # License for your code
