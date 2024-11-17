@@ -1,8 +1,7 @@
 package com.ldsa.ThreeSum2p;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;  // Correct static imports for assertions
-
+import static org.junit.jupiter.api.Assertions.*; // Correct static imports for assertions
 
 public class ThreeSumCheckerTest {
 
@@ -14,29 +13,29 @@ public class ThreeSumCheckerTest {
         assertTrue(ThreeSumChecker.findSumOfThree(nums, target));
     }
 
-    // // Test case 2: Array with sum 7
-    // @Test
-    // public void testFindSumOfThreeExists2() {
-    //     int[] nums = { -1, 2, 1, -4, 5, -3 };
-    //     int target = 7;
-    //     assertTrue(ThreeSumChecker.findSumOfThree(nums, target));
-    // }
+    // Test case 2: Array with sum 7
+    @Test
+    public void testFindSumOfThreeExists2() {
+        int[] nums = { -1, 2, 1, -4, 5, -3 };
+        int target = 7;
+        assertFalse(ThreeSumChecker.findSumOfThree(nums, target));
+    }
 
-    // // Test case 3: Array with sum 20 (does not exist)
-    // @Test
-    // public void testFindSumOfThreeNotExists() {
-    //     int[] nums = { 2, 3, 4, 1, 7, 9 };
-    //     int target = 20;
-    //     assertFalse(ThreeSumChecker.findSumOfThree(nums, target));
-    // }
+    // Test case 3: Array with sum 20 (does not exist)
+    @Test
+    public void testFindSumOfThreeNotExists() {
+        int[] nums = { 2, 3, 4, 1, 7, 9 };
+        int target = 20;
+        assertTrue(ThreeSumChecker.findSumOfThree(nums, target));
+    }
 
-    // // Test case 4: Array with sum -1
-    // @Test
-    // public void testFindSumOfThreeExists3() {
-    //     int[] nums = { 1, -1, 0 };
-    //     int target = -1;
-    //     assertTrue(ThreeSumChecker.findSumOfThree(nums, target));
-    // }
+    // Test case 4: Array with sum -1
+    @Test
+    public void testFindSumOfThreeExists3() {
+        int[] nums = { 1, -1, 0 };
+        int target = -1;
+        assertFalse(ThreeSumChecker.findSumOfThree(nums, target));
+    }
 
     // Test case 5: Array with sum 8
     @Test

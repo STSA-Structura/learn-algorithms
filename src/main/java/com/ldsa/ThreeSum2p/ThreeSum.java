@@ -10,11 +10,12 @@ public class ThreeSum {
             {-1, 2, 1, -4, 5, -3},
             {2, 3, 4, 1, 7, 9},
             {1, -1, 0},
-            {2, 4, 2, 7, 6, 3, 1}
+            {2, 4, 2, 7, 6, 3, 1},
+            { -1, 2, 1, -4, 5, -3 }
         };
 
         // Corresponding target values
-        int[] testList = {10, 7, 20, -1, 8};
+        int[] testList = {10, 7, 20, -1, 8, 7};
 
         // Iterate over each test case
         for (int i = 0; i < testList.length; i++) {
