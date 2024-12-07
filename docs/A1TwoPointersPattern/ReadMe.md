@@ -2,71 +2,71 @@
 
 The `Two Pointers Pattern` is a fundamental algorithmic technique for efficiently solving problems in linear data structures such as arrays, strings, and linked lists. By employing two pointers that traverse the structure in a coordinated manner, this pattern reduces the need for nested iterations, thereby improving time complexity. Its versatility makes it invaluable for scenarios requiring paired comparisons or targeted traversal in sequential data.
 
----
-
 ## Key Concepts
 
-1. `Two Pointers`: Two variables (pointers) are used to track positions within a data structure, often starting from different ends or positions, enabling coordinated traversal and comparison.
-2. `Dynamic Movement`: Pointers move adaptively, depending on the problem's requirements, to eliminate unnecessary checks and optimize processing.
-3. `Efficiency`: The pattern frequently reduces time complexity from \(O(n^2)\) to \(O(n)\), making it ideal for performance-critical applications.
+### 1. Two Pointers
 
----
+> Two variables (pointers) are used to track positions within a data structure, often starting from different ends or positions, enabling coordinated traversal and comparison.
+
+### 2. Dynamic Movement
+
+> Pointers move adaptively, depending on the problem's requirements, to eliminate unnecessary checks and optimize processing.
+
+### 3. Efficiency
+
+> The pattern frequently reduces time complexity from \(O(n^2)\) to \(O(n)\), making it ideal for performance-critical applications.
 
 ## Common Use Cases
 
-### 1. `Palindrome Check`
+### 1. Palindrome Check
 
-- `Problem`: Determine if a string is a palindrome.
-- `Approach`: Start pointers at the string's beginning (`left`) and end (`right`). Compare characters and move inward until pointers cross.
-- `Complexity`: \(O(n)\).
+> 1. `Problem`: Determine if a string is a palindrome.
+> 1. `Approach`: Start pointers at the string's beginning (`left`) and end (`right`). Compare characters and move inward until pointers cross.
+> 1. `Complexity`: \(O(n)\).
 
-### 2. `Array Reversal`
+### 2. Array Reversal
 
-- `Problem`: Reverse an array in place.
-- `Approach`: Use two pointers at the start and end. Swap elements and move inward.
-- `Complexity`: \(O(n)\), \(O(1)\) additional space.
+> 1. `Problem`: Reverse an array in place.
+> 1. `Approach`: Use two pointers at the start and end. Swap elements and move inward.
+> 1. `Complexity`: \(O(n)\), \(O(1)\) additional space. The O(1) additional space refers to the constant amount of memory used for the two pointers (or indices), irrespective of the size of the array.
 
-### 3. `Pair Sum in a Sorted Array`
+### 3. Pair Sum in a Sorted Array
 
-- `Problem`: Find two numbers in a sorted array that sum to a target.
-- `Approach`: Start one pointer at the beginning and the other at the end. Adjust pointers based on the current sum relative to the target.
-- `Complexity`: \(O(n)\).
+> 1. `Problem`: Find two numbers in a sorted array that sum to a target.
+> 1. `Approach`: Start one pointer at the beginning and the other at the end. Adjust pointers based on the current sum relative to the target.
+> 1. `Complexity`: \(O(n)\).
 
-### 4. `Removing Duplicates from a Sorted Array`
+### 4. Removing Duplicates from a Sorted Array
 
-- `Problem`: Remove duplicates in place, returning the array's new length.
-- `Approach`: Use a slow pointer (`i`) for unique elements and a fast pointer (`j`) to traverse. Update `i` when a new unique element is found.
-- `Complexity`: \(O(n)\).
+> 1. `Problem`: Remove duplicates in place, returning the array's new length.
+> 1. `Approach`: Use a slow pointer (`i`) for unique elements and a fast pointer (`j`) to traverse. Update `i` when a new unique element is found.
+> 1. `Complexity`: \(O(n)\).
 
-### 5. `Partitioning an Array`
+### 5. Partitioning an Array
 
-- `Problem`: Partition an array around a pivot.
-- `Approach`: Use pointers at both ends to swap elements that are on the wrong side of the pivot.
-- `Complexity`: \(O(n)\).
-
----
+> 1. `Problem`: Partition an array around a pivot.
+> 1. `Approach`: Use pointers at both ends to swap elements that are on the wrong side of the pivot.
+> 1. `Complexity`: \(O(n)\).
 
 ## Criteria for Applying Two Pointers
 
-### Linear Data Structure
+### 1. Linear Data Structure
 
-- Suitable for arrays, strings, or linked lists where elements can be accessed sequentially.
-- For non-linear structures (e.g., graphs, trees), alternative patterns may be more appropriate.
+> 1. Suitable for arrays, strings, or linked lists where elements can be accessed sequentially.
+> 1. For non-linear structures (e.g., graphs, trees), alternative patterns may be more appropriate.
 
-### Dynamic Pointer Movement
+### 2. Dynamic Pointer Movement
 
-- Pointers adapt to conditions (e.g., moving inward symmetrically for palindrome checks or adjusting asymmetrically for pair-sum problems).
-- Flexibility reduces unnecessary iterations.
+> 1. Pointers adapt to conditions (e.g., moving inward symmetrically for palindrome checks or adjusting asymmetrically for pair-sum problems).
+> 1. Flexibility reduces unnecessary iterations.
 
-### Minimal Space Usage
+### 3. Minimal Space Usage
 
-- Typically achieves \(O(1)\) auxiliary space by using only pointers, making it ideal for memory-constrained scenarios.
+> 1. Typically achieves \(O(1)\) auxiliary space by using only pointers, making it ideal for memory-constrained scenarios.
 
-### Simultaneous Pair Processing
+### 4. Simultaneous Pair Processing
 
-- Allows efficient pairwise operations, reducing the need for nested loops.
-
----
+> 1. Allows efficient pairwise operations, reducing the need for nested loops.
 
 ## Optimization Strategies
 
