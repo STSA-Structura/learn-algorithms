@@ -121,13 +121,9 @@ def remove_duplicates(nums):
 1. **Linear Data Structure**:
    - Suitable for arrays, strings, or linked lists where elements are accessed sequentially.
 2. **Dynamic Pointer Movement**:
-
    - Pointers adapt based on conditions, eliminating redundant checks (e.g., moving inward symmetrically for palindrome checks).
-
 3. **Minimal Space Usage**:
-
    - Achieves \(O(1)\) auxiliary space by relying only on pointers.
-
 4. **Simultaneous Pair Processing**:
    - Efficient for pairwise comparisons without nested loops.
 
@@ -136,19 +132,13 @@ def remove_duplicates(nums):
 ## Optimization Strategies
 
 1. **Choosing Initial Positions**:
-
    - For symmetrical problems (e.g., palindromes), start pointers at opposite ends.
    - For conditional problems (e.g., pair sums), start at logical extremes.
-
 2. **Handling Edge Cases**:
-
    - Manage special conditions like empty structures or single-element arrays to avoid errors.
-
 3. **Combining with Other Patterns**:
-
    - **Sliding Window**: Useful for dynamic range problems like substrings.
    - **Binary Search**: Enhances efficiency when dealing with sorted data.
-
 4. **Adapting for Unsorted Data**:
    - Preprocessing (e.g., sorting) can make unsorted data compatible with the Two Pointers Pattern.
 
