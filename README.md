@@ -36,6 +36,8 @@ gradle run --warning-mode all
 ./gradlew test --warning-mode all
 
 gradle test --warning-mode all
+gradle test --rerun-tasks --info
+
 ```
 
 ## Folder Structure

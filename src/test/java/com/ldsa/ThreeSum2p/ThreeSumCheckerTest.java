@@ -1,7 +1,7 @@
 package com.ldsa.ThreeSum2p;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*; // Correct static imports for assertions
 
 public class ThreeSumCheckerTest {
 
@@ -18,7 +18,7 @@ public class ThreeSumCheckerTest {
     public void testFindSumOfThreeExists2() {
         int[] nums = { -1, 2, 1, -4, 5, -3 };
         int target = 7;
-        assertTrue(ThreeSumChecker.findSumOfThree(nums, target));
+        assertFalse(ThreeSumChecker.findSumOfThree(nums, target));
     }
 
     // Test case 3: Array with sum 20 (does not exist)
@@ -26,7 +26,7 @@ public class ThreeSumCheckerTest {
     public void testFindSumOfThreeNotExists() {
         int[] nums = { 2, 3, 4, 1, 7, 9 };
         int target = 20;
-        assertFalse(ThreeSumChecker.findSumOfThree(nums, target));
+        assertTrue(ThreeSumChecker.findSumOfThree(nums, target));
     }
 
     // Test case 4: Array with sum -1
@@ -34,7 +34,7 @@ public class ThreeSumCheckerTest {
     public void testFindSumOfThreeExists3() {
         int[] nums = { 1, -1, 0 };
         int target = -1;
-        assertTrue(ThreeSumChecker.findSumOfThree(nums, target));
+        assertFalse(ThreeSumChecker.findSumOfThree(nums, target));
     }
 
     // Test case 5: Array with sum 8

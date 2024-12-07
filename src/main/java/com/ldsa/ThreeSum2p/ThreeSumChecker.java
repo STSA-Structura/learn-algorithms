@@ -6,6 +6,10 @@ public class ThreeSumChecker {
 
     // Function to check if there exists a triplet with sum equal to the target
     public static boolean findSumOfThree(int[] nums, int target) {
+        if (nums.length < 3) {
+            return false; // No triplet can be formed if the array has fewer than 3 elements
+        }
+
         // First, sort the array
         Arrays.sort(nums);
 

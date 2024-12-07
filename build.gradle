@@ -28,7 +28,12 @@ task runThreeSumMain(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
+task runRNthNFEndofListMain(type: JavaExec) {
+    mainClass = 'com.ldsa.RNthNFEndofList.Main'  // Main class for another class (updated to use mainClass)
+    classpath = sourceSets.main.runtimeClasspath
+}
+
 // New task to run both tasks in sequence
 task runAll {
-    dependsOn 'runPalindromeMain', 'runThreeSumMain'
+    dependsOn 'runPalindromeMain', 'runThreeSumMain', 'runRNthNFEndofListMain'
 }
