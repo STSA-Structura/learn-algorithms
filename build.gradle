@@ -29,7 +29,7 @@ task runThreeSumMain(type: JavaExec) {
 }
 
 task runRNthNFEndofListMain(type: JavaExec) {
-    mainClass = 'com.ldsa.RNthNFEndofList.Main'  // Main class for another class (updated to use mainClass)
+    mainClass = 'com.ldsa.RNthNFEndofList2p.Main'  // Main class for another class (updated to use mainClass)
     classpath = sourceSets.main.runtimeClasspath
 }
 
